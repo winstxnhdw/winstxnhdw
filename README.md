@@ -2,7 +2,7 @@ Working on autonomous systems!
 <br />
 <br />
 <div class="row">
-  <img src="https://github.com/winstxnhdw/AutoCarROS/blob/master/screenshots/1.gif?raw=true" width="425" />
+  <img src="https://github.com/winstxnhdw/AutoCarROS/blob/master/screenshots/1.gif?raw=true" width="426" />
   <img src="https://github.com/winstxnhdw/AutoCarROS/blob/master/screenshots/2.gif?raw=true" width="425" /> 
 </div>
 <div class="row">
