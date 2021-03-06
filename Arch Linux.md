@@ -39,7 +39,7 @@ WARNING: If you do not meet any one of the requirements, this documentation is n
 
 - Internet Connection
 
-- Use the US keymaps
+- Use US keymaps
 
 > In my case, I have a 500GB NVME for Windows and a 500GB SSD for Arch (shared with my Steam library).
 >
