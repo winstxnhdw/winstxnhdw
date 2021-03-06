@@ -22,6 +22,7 @@ Arch Linus is a Linux distribution for computers with _normal_ processors. This 
 - [Additional Installations](#Addtional-Installations)
   - [Install a Graphics Driver](#Install-a-Graphics-Driver)
   - [Install a Display Server](#Install-a-Display-Server)
+  - [Install a Desktop Environment](#Install-a-Desktop-Environment)
 
 ## Requirements
 WARNING: If you do not meet any one of the requirements, this documentation is not for you. If you ignore this warning and did not brick your computer, hats off to you.
