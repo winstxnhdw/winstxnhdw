@@ -316,6 +316,9 @@ Now you can also edit your locale files by using Vim. Using Vim, you should unco
 # Edit the file with Vim
 $ vim /etc/locale.gen
 
+# Generate locale
+$ locale-gen
+
 # Change the line depending on which line you uncommented
 $ echo "LANG=en_SG.UTF-8" >> /etc/locale.conf
 ```
@@ -415,7 +418,7 @@ $ sudo pacman -S xf86-video-intel
 ### Install a Display Server
 You can choose your own display server.
 ```
-$ pacman -S xorg
+$ pacman -S xorg xorg-xinit
 ```
 
 ### Install a Display Manager
