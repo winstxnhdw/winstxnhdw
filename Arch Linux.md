@@ -276,6 +276,7 @@ $ pacstrap /mnt base linux linux-firmware vim intel-ucode
 ```
 There are a few more packages you may want to install.
 ```
+$ pacman -Syyy
 $ pacman -S grub efibootmgr networkmanager network-manager-applet bluez bluez-utils dialog wireless_tools wpa_supplicant os-prober mtools dosfstools ntfs-3g base-devel linux-headers
 ```
 ### Root
