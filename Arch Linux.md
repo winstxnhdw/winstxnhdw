@@ -368,7 +368,7 @@ $ grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=GRU
 ```
 Then generate the configuration file.
 ```
-grub-mkconfig -0 /boot/grub/grub.cfg
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 > Now pray that GRUB detects Windows. Most people fail here.
 >
