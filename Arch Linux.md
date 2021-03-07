@@ -356,6 +356,9 @@ $ EDITOR=vim visudo
 %wheel ALL=(ALL) ALL
 ```
 
+>if `visudo` is not found, do `pacman -S sudo`.
+>
+
 ### Installing Grub
 > Welcome to potentially the saddest part of this documentation.
 >
