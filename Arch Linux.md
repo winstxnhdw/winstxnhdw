@@ -310,15 +310,15 @@ $ ln -sf /usr/share/zoneinfo/type-your-region/type-your-city /etc/localtime
 # Synchronise your system clock
 $ hwclock --systohc
 ```
-Now you can also edit your locale files by using Vim.
+Now you can also edit your locale files by using Vim. Using Vim, you should uncomment the encoding standard you would like to use. To use Vim, press 'I' to begin editing, and once you are done, press 'esc' then ':wq' to save.
+
 ```bash
 # Edit the file with Vim
-$ vim /etc/local.gen
+$ vim /etc/locale.gen
 
 # Change the line depending on which line you uncommented
 $ echo "LANG=en_SG.UTF-8" >> /etc/locale.conf
 ```
-Using Vim, you should uncomment the encoding standard you would like to use. To use Vim, press 'I' to begin editing, and once you are done, press 'esc' then ':wq' to save.
 
 > In my case, I uncommented `en_SG.UTF-8 UTF-8` line.
 >
