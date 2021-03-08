@@ -1,5 +1,5 @@
 # Arch Linux
-Arch Linus is a Linux distribution for computers with _normal_ processors. This documentation describes the installation steps of a **UEFI-supported Arch Linux dual boot with Windows**, where Windows and Arch are installed on separate disks.
+Arch Linus is a Linux distribution for computers with _normal_ processors. This documentation describes the installation steps of a **UEFI-supported Arch Linux with Windows dual boot**, where Windows and Arch are installed on separate disks.
 > My opinions are left within block quotes such as these. They usually contain important information, so do read them.
 >
 
