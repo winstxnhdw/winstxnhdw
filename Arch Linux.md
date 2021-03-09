@@ -14,11 +14,12 @@ Arch Linus is a Linux distribution for computers with _normal_ processors. This 
   - [Recreating the EFI Partition](#Recreating-the-EFI-Partition)
 - [Getting Ready](#Getting-Ready)
   - [Connecting to Wi-Fi](#Connecting-to-Wi-Fi)
+  - [Synchronising Packages](#Synchronising-Packages)
   - [Mounting Partitions](#Mounting-Partitions)
 - [Configuring Linux](#Configuring-Linux)
   - [Root](#Root)
   - [Installing Grub](#Installing-Grub)
-- [Activate Internet](#Activate-Internet)
+  - [Activate Services](#Activate-Services)
 - [Additional Installations](#Addtional-Installations)
   - [Install a Graphics Driver](#Install-a-Graphics-Driver)
   - [Install a Display Server](#Install-a-Display-Server)
@@ -236,6 +237,31 @@ $ exit
 > You can test your internet connection by doing `ping google.com`
 >
 
+### Synchronising Packages
+To prevent any errors that may occur later, it is important to synchronise your packages beforehand.
+```bash
+# Synchronise the time
+$ timedatectl set-ntp true
+
+# Synchronise packages
+$ pacman -Syyy
+```
+
+>I did not synchronise my packages, which caused many of the packages I installed to break.
+>
+
+You will also be installing Reflector, which helps to setup the initial list of updated mirrors. This installation will not be carried forward to your Arch.
+```bash
+# Install Reflector
+$ pacman -S reflector
+
+# Setup Reflector
+$ reflector -c type-your-country -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+
+# Synchronise packages once more
+$ pacman -Syyy
+```
+
 ### Mounting Partitions
 To mount your partitions, you need to identify which partition is which, and you can do that by typing the following command.
 ```
@@ -243,7 +269,7 @@ $ lsblk
 ```
 Then you need to create a directory to mount your EFI and Windows partition.
 ```
-$ mkdir -p /mnt/boot/EFI
+$ mkdir /mnt/boot
 $ mkdir /mnt/Win10
 ```
 You will also have to create a partition for Arch by using cfdisk.
@@ -260,7 +286,7 @@ Finally, we can mount the partitions with the following commands.
 $ mount /dev/type-your-partition-name /mnt
 
 # Mount your EFI partition
-$ mount /dev/type-your-EFI-partition-name /mnt/boot/EFI
+$ mount /dev/type-your-EFI-partition-name /mnt/boot
 
 # Mount your Windows partition
 $ mount /dev/type-your-windows-partition-name /mnt/Win10
@@ -270,14 +296,10 @@ $ mount /dev/type-your-windows-partition-name /mnt/Win10
 This step covers the installation of certain packages that may be useful for you.
 >If you know what you are doing, feel free to remove/add certain packages
 >
+
 ```bash
 # Replace intel-ucode with amd-ucode if you have a AMD processor
 $ pacstrap /mnt base linux linux-firmware vim intel-ucode
-```
-There are a few more packages you may want to install.
-```
-$ pacman -Syyy
-$ pacman -S grub efibootmgr networkmanager network-manager-applet bluez bluez-utils dialog wireless_tools wpa_supplicant os-prober mtools dosfstools ntfs-3g base-devel linux-headers xdg-utils xdg-user-dirs
 ```
 ### Root
 Before entering root, you should generate a fstab file.
@@ -302,16 +324,17 @@ Within root, you can synchronise your clock with the following commands. First, 
 # Find your region
 $ timedatectl list-timezones | grep type-your-city
 ```
+
 Once you have known your region and city, you can proceed with the following.
 ```bash
-# Sets your localtime accordingly
-$ ln -sf /usr/share/zoneinfo/type-your-region/type-your-city /etc/localtime
+# Link your region to the localtime file
+$ ln -sf /usr/share/zoneinfo/your-region/your-city /etc/localtime
 
 # Synchronise your system clock
 $ hwclock --systohc
 ```
-Now you can also edit your locale files by using Vim. Using Vim, you should uncomment the encoding standard you would like to use. To use Vim, press 'I' to begin editing, and once you are done, press 'esc' then ':wq' to save.
 
+Now you can also edit your locale files by using Vim. Using Vim, you should uncomment the encoding standard you would like to use. To use Vim, press 'I' to begin editing, and once you are done, press 'esc' then ':wq' to save.
 ```bash
 # Edit the file with Vim
 $ vim /etc/locale.gen
@@ -325,6 +348,7 @@ $ echo "LANG=en_SG.UTF-8" >> /etc/locale.conf
 
 > In my case, I uncommented `en_SG.UTF-8 UTF-8` line.
 >
+
 You will also need to edit your host files. The name of your host is anything of your choice.
 ```
 vim /etc/hostname
@@ -332,6 +356,8 @@ vim /etc/hostname
 ---------------------------------------------
 your-host-name
 ```
+
+You will now need to configure your hosts file with the following.
 ```bash
 $ vim /etc/hosts
 
@@ -342,15 +368,24 @@ $ vim /etc/hosts
 ::1           localhost
 127.0.1.1     your-host-name.localdomain     your-host-name
 ```
+
 It is also essential to add a password for your root, which you can do through shell.
 ```
 $ passwd
 ```
+
+There are a few more packages you may want to install.
+```
+$ pacman -Syyy
+$ pacman -S grub efibootmgr networkmanager network-manager-applet bluez bluez-utils dialog wireless_tools wpa_supplicant os-prober mtools dosfstools ntfs-3g base-devel linux-headers xdg-utils xdg-user-dirs git
+```
+
 You will also need to add a user.
 ```
 $ useradd -mG wheel type-your-username
 $ passwd type-your-username
 ```
+
 Now you need to give the user super user by editing the visudo file and uncommenting the first wheel group.
 ```
 $ EDITOR=vim visudo
@@ -367,7 +402,7 @@ $ EDITOR=vim visudo
 >
 To install grub, you must run the following.
 ```
-$ grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=GRUB
+$ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 ```
 Then generate the configuration file.
 ```
@@ -375,6 +410,16 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 > Now pray that GRUB detects Windows. Most people fail here.
 >
+
+### Activate Services
+```bash
+# Autostart NetworkManager on reboot
+$ systemctl enable NetworkManager
+
+# Autostart Bluetooth or reboot
+$ systemctl enable bluetooth
+```
+
 If GRUB does not detect Windows, find our which steps you missed or cry. If GRUB does detect Windows, consider yourself lucky.
 ```bash
 # Exit root
@@ -387,16 +432,13 @@ $ umount -a
 $ reboot
 ```
 
-## Activate Internet
+### Post-Reboot Configurations
 ```bash
 # Start the NetworkManager service
 $ systemctl start NetworkManager
 
 # Connect to your access point
 $ nmtui
-
-# Autostart NetworkManager on reboot
-$ systemctl enable NetworkManager
 ```
 
 ## Addtional Installations
@@ -418,7 +460,7 @@ $ sudo pacman -S xf86-video-intel
 ### Install a Display Server
 You can choose your own display server.
 ```
-$ pacman -S xorg xorg-xinit
+$ sudo pacman -S xorg xorg-xinit
 ```
 
 ### Install a Display Manager
@@ -426,7 +468,7 @@ You can choose your own display manager.
 >I installed Ly along with i3, but I will recommend KDE, which uses SDDM here.
 >
 ```
-$ pacman -S sddm
+$ sudo pacman -S sddm
 $ systemctl enable sddm
 ```
 
