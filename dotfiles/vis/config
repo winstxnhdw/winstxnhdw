@@ -1,0 +1,11 @@
+visualizer.fps=30
+audio.pulse.source=8
+colors.scheme=default
+visualizer.spectrum.bar.spacing=1
+visualizer.spectrum.bar.width=5
+visualizer.spectrum.smoothing.mode=sgs
+audio.stereo.enabled=false
+visualizer.spectrum.top.margin=0.40
+visualizer.spectrum.bottom.margin=0.20
+visualizer.spectrum.right.margin=0.10
+visualizer.spectrum.left.margin=0.10
