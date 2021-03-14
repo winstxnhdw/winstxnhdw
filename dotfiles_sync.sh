@@ -10,8 +10,10 @@ else
   exit 1
 fi
 
-PTH = '~/projects/winstxnhdw/dotfiles'
+PTH="/home/$USER/projects/winstxnhdw/dotfiles"
 
-cp ~/{.fehbg, .xinitrc, .Xresources, picom.conf} "$PTH"
+cp /home/$USER/{.fehbg,.xinitrc,.xprofile,.Xresources,picom.conf} $PTH
 
-cp -r ~/.config/{i3, vis} "$PTH"
+cp -r /home/$USER/.config/{i3,vis} $PTH
+
+code $PTH/.. 
