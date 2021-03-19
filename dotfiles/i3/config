@@ -177,11 +177,12 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	position top
-        status_command i3status
-	font pango:Monaco 10
-}
+# bar {
+#	 position top
+#        status_command i3status
+#   	 font pango:Monaco 10
+# }
+
 # Shortcuts
 bindsym $mod+c exec google-chrome-stable
 
@@ -196,3 +197,4 @@ workspace 4 gaps outer 0
 
 # Execs
 exec --no-startup-id compton
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

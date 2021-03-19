@@ -1,5 +1,4 @@
 visualizer.fps=30
-audio.pulse.source=8
 colors.scheme=default
 visualizer.spectrum.bar.spacing=1
 visualizer.spectrum.bar.width=5
