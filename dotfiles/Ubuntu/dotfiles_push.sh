@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PTH="/home/$USER/projects/winstxnhdw/dotfiles"
+PTH="/home/$USER/projects/winstxnhdw/dotfiles/Ubuntu"
 
 cp /home/$USER/{.fehbg,.xinitrc,.xprofile,.Xresources,picom.conf} $PTH
 

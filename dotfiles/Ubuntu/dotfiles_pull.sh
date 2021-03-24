@@ -4,7 +4,7 @@ read -p "Are you sure you want to overwrite your dotfiles (y/n)? " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    PTH="/home/$USER/projects/winstxnhdw/dotfiles"
+    PTH="/home/$USER/projects/winstxnhdw/dotfiles/Ubuntu"
 
     cp $PTH/{.fehbg,.xinitrc,.xprofile,.Xresources,picom.conf} /home/$USER
 
