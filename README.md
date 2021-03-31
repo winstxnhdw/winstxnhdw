@@ -12,4 +12,5 @@ Working on autonomous systems and web development!
   </div>
 </div>
 
+<br>
 ![visitors](https://page-views.glitch.me/badge?page_id=winstxnhdw.visitor-badge)
