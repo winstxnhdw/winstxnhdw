@@ -1,5 +1,4 @@
 Working on autonomous systems and web development!
-![visitors](https://page-views.glitch.me/badge?page_id=winstxnhdw.visitor-badge)
 <br />
 <br />
 <div align="center">
@@ -12,3 +11,5 @@ Working on autonomous systems and web development!
     <img src="https://github.com/winstxnhdw/AutoCarROS/blob/master/resources/gifs/4.gif?raw=true" width="49%" /> 
   </div>
 </div>
+
+![visitors](https://page-views.glitch.me/badge?page_id=winstxnhdw.visitor-badge)
