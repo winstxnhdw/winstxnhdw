@@ -188,12 +188,10 @@ bindsym $mod+c exec google-chrome-stable
 
 # Gaps
 for_window [class=".*"] border pixel 0
-gaps inner 5
-gaps outer 5
-workspace 3 gaps inner 0
-workspace 3 gaps outer 0
-workspace 4 gaps inner 0
-workspace 4 gaps outer 0
+workspace 1 gaps inner 10
+workspace 1 gaps outer 10
+workspace 2 gaps inner 10
+workspace 2 gaps outer 10
 
 # Execs
 exec --no-startup-id compton
