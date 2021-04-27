@@ -4,7 +4,8 @@ PTH="/home/$USER/projects/winstxnhdw/dotfiles/Ubuntu"
 
 cp /home/$USER/{.fehbg,.xinitrc,.xprofile,.Xresources,picom.conf} $PTH
 
-cp -r /home/$USER/.config/{i3,vis,polybar} $PTH
+cp -r /home/$USER/.config/{vis,polybar} $PTH
+cp /home/$USER/.config/i3/config $PTH
 
 code $PTH/.. 
 

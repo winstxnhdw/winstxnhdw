@@ -185,15 +185,17 @@ bindsym $mod+r mode "resize"
 
 # Shortcuts
 bindsym $mod+c exec google-chrome-stable
+bindsym $mod+Control+l exec i3lock -i home/winston/Downloads/wallpaper.png
 
 # Gaps
 for_window [class=".*"] border pixel 0
-gaps inner 10
-gaps outer 10 
-workspace 3 gaps inner 0
-workspace 3 gaps outer 0
-workspace 4 gaps inner 0
-workspace 4 gaps outer 0
+gaps inner 0
+gaps outer 0
+workspace 1 gaps inner 10
+workspace 1 gaps outer 10
+workspace 2 gaps inner 10
+workspace 2 gaps outer 10
+border_radius 4
 
 # Execs
 exec_always --no-startup-id picom --config ~/picom.conf
