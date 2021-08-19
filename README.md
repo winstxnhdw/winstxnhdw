@@ -1,4 +1,4 @@
-    Working on autonomous systems and web development!
+    Working on autonomous systems and web development! I code as a form of meditation sometimes.
 <div align="center">
   <div class="row">
     <img src="https://github.com/winstxnhdw/AutoCarROS/blob/master/resources/gifs/1.gif?raw=true" width="49%" />
