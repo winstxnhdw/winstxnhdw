@@ -1,5 +1,4 @@
     Working on autonomous systems and web development!
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 <div align="center">
   <div class="row">
     <img src="https://github.com/winstxnhdw/AutoCarROS/blob/master/resources/gifs/1.gif?raw=true" width="49%" />
