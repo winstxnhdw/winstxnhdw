@@ -25,6 +25,7 @@ This documentation describes the installation steps of a **UEFI-supported Arch L
   - [Install a Display Server](#Install-a-Display-Server)
   - [Install a Display Manager](#Install-a-Display-Manager)
   - [Install a Window Manager](#Install-a-Window-Manager)
+  - [Install fish](#Install-fish)
 
 ## Requirements
 
@@ -77,11 +78,14 @@ $ list disk
 ### Using `MBR2GPT`
 
 If under the GPT section, your disk has a **asterisk**, your drive is GPT, if not, it is a MBR disk. If your the **drive where your OS is installed** in is MBR. You may convert it to GPT by typing the following commands in the terminal.
+
 ```bash
 # Checks whether your disk can be converted to GPT
 $ mbr2gpt /validate /disk:type-your-disk-number /allowFullOS
 ```
+
 You can retrieve _your-disk-number_ from the earlier `list disk` command you used in `diskpart`. If you receive no errors from runnning that command, you can boot into Windows Preinstallation Environment (PE) and use the command prompt to run the following command. You can look at this [guide](https://docs.microsoft.com/en-us/windows/deployment/mbr-to-gpt) for more info.
+
 ```
 $ mbr2gpt /convert /disk:type-your-disk-number
 ```
@@ -151,6 +155,7 @@ $ delete partition override
 $ shrink desired=528  
 ```
 If you already have free space, you can simply go to this step and create a EFI and MSR partition.
+
 ```bash
 # Select the disk where you want your EFI partition
 $ sel disk type-your-disk-number
@@ -185,6 +190,7 @@ $ assign letter=letter-your-win10-uses
 # Leave the tool
 $ exit
 ```
+
 Now we have to repair the EFI bootloader and the Windows BCD with the following commands.
 > The letter of my EFI volume and Windows was S: and C:, respectively. This will be used in our examples hereafter.
 
@@ -219,8 +225,10 @@ Now you can restart your computer.
 >If you have multiple Windows Boot Managers after this, you can use [EasyUEFI](https://www.easyuefi.com/) to delete the extra entries, **before** your free trial ends.
 
 ## Getting Ready
+
 Boot into your Arch ISO and enable internet access.
 ### Connecting to Wi-Fi
+
 If you do not use Wi-Fi, you may skip this step. You will need internet access to install various packages to complete the setup. You can connect to your Wi-Fi network by running the following shell commands.
 
 ```bash
@@ -261,7 +269,7 @@ You will also be installing Reflector, which helps to setup the initial list of 
 $ pacman -S reflector
 
 # Setup Reflector
-$ reflector -c type-your-country -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+$ reflector -c <your-country> -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
 # Synchronise your packages once more
 $ pacman -Syyy
@@ -385,7 +393,7 @@ $ echo "<your-hostname>" >> /etc/hostname
 
 You will now need to configure your hosts file with the following.
 ```bash
-$ vim /etc/hosts
+$ nvim /etc/hosts
 
 ---------------------------------------------
 # Satic table lookup for hostnames.
@@ -508,7 +516,9 @@ $ sudo pacman -S xf86-video-intel
 ```
 
 ### Install a Display Server
+
 You can choose your own display server.
+
 ```bash
 $ sudo pacman -Syu xorg
 ```
@@ -539,4 +549,19 @@ $ sudo pacman -Syu i3-gaps xterm rxvt-unicode dmenu
 
 # Finally, reboot
 $ sudo reboot
+```
+
+### Install fish
+
+`fish` is a smart and user-friendly command line shell for Linux.
+
+```bash
+# Install fish
+$ yay -Syu fish
+
+# Change fish to the default shell
+$ chsh -s /bin/fish
+
+# Initialise fish
+$ fish
 ```
