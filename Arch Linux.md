@@ -24,7 +24,7 @@ This documentation describes the installation steps of a **UEFI-supported Arch L
   - [Install a Graphics Driver](#Install-a-Graphics-Driver)
   - [Install a Display Server](#Install-a-Display-Server)
   - [Install a Display Manager](#Install-a-Display-Manager)
-  - [Install a Desktop Environment](#Install-a-Desktop-Environment)
+  - [Install a Window Manager](#Install-a-Window-Manager)
 
 ## Requirements
 
@@ -50,7 +50,7 @@ WARNING: If you do not meet any one of the requirements and proceed with the ins
 
 To begin the installation, the user must first flash the Arch ISO onto a bootable USB. To do this, you must first download the ISO from [here](https://archlinux.org/download/). 
 
->It is recommended that you install the HTTP Direct Downloads instead of their _recommended_ BitTorrent files.
+> It is recommended that you install the HTTP Direct Downloads instead of their _recommended_ BitTorrent files.
 
 Now all you need is a software to help you flash the ISO onto the USB, like [Rufus](https://rufus.ie/).
 
@@ -58,7 +58,7 @@ Now all you need is a software to help you flash the ISO onto the USB, like [Ruf
 
 If you are using Rufus, you should first check whether your BIOS mode is **UEFI** or **Legacy** by looking at your system information in Windows.
 
->If you are like me, who has  a UEFI motherboard, but for some reason, use a _Legacy_ BIOS mode, you can switch over to using a _UEFI_ BIOS mode by configuring it in your UEFI menu. If you do not have a UEFI motherboard, this documentation is not for you.
+> If you are like me, who has  a UEFI motherboard, but for some reason, use a _Legacy_ BIOS mode, you can switch over to using a _UEFI_ BIOS mode by configuring it in your UEFI menu. If you do not have a UEFI motherboard, this documentation is not for you.
 
 On Rufus, the only setting you need to change from default is the **Partition Scheme**, where it should be set to **GPT**.
 
@@ -107,7 +107,7 @@ $ sgdisk -g /dev/type-your-drive-here
 
 You can find your drive name by using the `lsblk` command and  perform a educated guess to identify which is your drive. 
 
->e.g. `sgdisk -g /dev/nvme0n1`
+> e.g. `sgdisk -g /dev/nvme0n1`
 
 You can skip this step if your drive is already GPT, but **do not** have a EFI partition.
 
