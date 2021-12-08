@@ -562,6 +562,11 @@ $ yay -Syu fish
 # Change fish to the default shell
 $ chsh -s /bin/fish
 
+# Set your nvim as your default editor
+$ set -Ux EDITOR nvim
+$ set -Ux VISUAL nvim
+$ set -Ux SUDO_EDITOR nvim
+
 # Initialise fish
 $ fish
 ```
