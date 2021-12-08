@@ -324,7 +324,7 @@ This step covers the installation of certain packages that may be useful for you
 
 ```bash
 # Replace intel-ucode with amd-ucode if you have a AMD processor
-$ pacstrap /mnt base base-devel linux linux-firmware neovim git grub efibootmgr os-prober ntfs-3g iwd dhcpcd bluez bluez-utils intel-ucode
+$ pacstrap /mnt base base-devel linux linux-firmware neovim git grub efibootmgr os-prober ntfs-3g iwd dhcpcd bluez bluez-utils intel-ucode pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol polybar feh flameshot picom neofetch ranger
 ```
 ### Root
 
