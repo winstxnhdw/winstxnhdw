@@ -26,6 +26,7 @@ This documentation describes the installation steps of a **UEFI-supported Arch L
   - [Install a Display Manager](#Install-a-Display-Manager)
   - [Install a Window Manager](#Install-a-Window-Manager)
   - [Install fish](#Install-fish)
+  - [Setup Bluetooth](#Setup-Bluetooth)
 
 ## Requirements
 
@@ -326,6 +327,7 @@ This step covers the installation of certain packages that may be useful for you
 # Replace intel-ucode with amd-ucode if you have a AMD processor
 $ pacstrap /mnt base base-devel linux linux-firmware neovim git grub efibootmgr os-prober ntfs-3g iwd dhcpcd bluez bluez-utils intel-ucode pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol polybar feh flameshot picom neofetch ranger
 ```
+
 ### Root
 
 Before entering root, you should generate a fstab file.
@@ -454,7 +456,7 @@ $ systemctl enable iwd
 $ systemctl enable dhcpcd.service
 
 # Autostart Bluetooth or reboot
-$ systemctl enable bluetooth
+$ systemctl enable bluetooth.service
 ```
 
 If GRUB does not detect Windows, find out which of the steps you have missed.
@@ -545,7 +547,7 @@ Here, we install i3-gaps and other packages that will help with setting up i3.
 
 ```bash
 # Install i3-gaps and other relevant packages
-$ sudo pacman -Syu i3-gaps xterm rxvt-unicode dmenu
+$ sudo pacman -Syu i3-gaps xterm rxvt-unicode dmenu ttf-fira-code
 
 # Finally, reboot
 $ sudo reboot
@@ -569,4 +571,59 @@ $ set -Ux SUDO_EDITOR nvim
 
 # Initialise fish
 $ fish
+```
+
+### Setup Bluetooth
+
+Enable and check if your bluetooth module is enabled.
+
+```bash
+$ modprobe btusb
+$ lsmod | grep btusb
+-----------------------------------------
+btrtl                  28672  1 btusb
+btbcm                  24576  1 btusb
+btintel                45056  1 btusb
+bluetooth             749568  30 btrtl,btintel,btbcm,bnep,btusb
+```
+
+Enter the bluetooth command-line interface.
+
+```root
+# power on
+# agent on
+# default-agent
+```
+
+Scan for your device.
+
+```root
+# scan on
+-----------------------
+Discovery started
+[CHG] Controller 5C:F3:70:88:89:04 Discovering: yes
+[NEW] Device 7B:AD:84:DB:3D:BB 7B-AD-84-DB-3D-BB
+[NEW] Device 49:82:6A:10:DD:A5 49-82-6A-10-DD-A5
+[NEW] Device 61:6F:31:5B:7E:99 61-6F-31-5B-7E-99
+[CHG] Device F4:DD:C8:4E:FA:C4 ServicesResolved: no
+[CHG] Device F4:DD:C8:4E:FA:C4 Connected: no
+[NEW] Device F4:DD:C8:4E:FA:C5 MX Master 3
+
+```
+
+Pair and connect with device.
+
+```root
+# scan off
+# trust F4:DD:C8:4E:FA:C5
+# pair F4:DD:C8:4E:FA:C5
+# connect F4:DD:C8:4E:FA:C5
+```
+
+Set bluetooth module to autostart by setting `AutoEnable` to `true`.
+
+```bash
+$ sudo vim /etc/bluetooth/main.conf
+---------------------------------------
+AutoEnable=true
 ```
