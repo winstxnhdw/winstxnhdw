@@ -547,7 +547,7 @@ Here, we install i3-gaps and other packages that will help with setting up i3.
 
 ```bash
 # Install i3-gaps and other relevant packages
-$ sudo pacman -Syu i3-gaps xterm rxvt-unicode dmenu ttf-fira-code
+$ sudo pacman -Syu i3-gaps xterm alacritty dmenu ttf-fira-code
 
 # Finally, reboot
 $ sudo reboot
