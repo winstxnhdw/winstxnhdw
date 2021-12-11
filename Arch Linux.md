@@ -1,4 +1,5 @@
 # Arch Linux Installation Guide
+
 This documentation describes the installation steps of a **UEFI-supported Arch Linux/Windows/Ubuntu triple boot**, where Windows, Arch and Ubuntu are installed on separate disks.
 > My opinions are left within block quotes such as these. They usually contain important information, so do read them when you feel uncertain.
 
@@ -50,7 +51,7 @@ WARNING: If you do not meet any one of the requirements and proceed with the ins
 
 ## Flashing the ISO
 
-To begin the installation, the user must first flash the Arch ISO onto a bootable USB. To do this, you must first download the ISO from [here](https://archlinux.org/download/). 
+To begin the installation, the user must first flash the Arch ISO onto a bootable USB. To do this, you must first download the ISO from [here](https://archlinux.org/download/).
 
 > It is recommended that you install the HTTP Direct Downloads instead of their _recommended_ BitTorrent files.
 
@@ -65,30 +66,32 @@ If you are using Rufus, you should first check whether your BIOS mode is **UEFI*
 On Rufus, the only setting you need to change from default is the **Partition Scheme**, where it should be set to **GPT**.
 
 ## Converting from MBR to GPT
+
 If your drives are already GPT and **have** a EFI partition, you may ignore this section.
 
 >If your drives are MBR, prepare for hell. I went through this.
 
 To check whether your drives are GPT, you can check by using the command prompt terminal on Windows and type in the following commands.
-```bash
+
+```powershell
 # Run cmd.exe as administrator if you have any errors
-$ diskpart
-$ list disk
+diskpart
+list disk
 ```
 
 ### Using `MBR2GPT`
 
 If under the GPT section, your disk has a **asterisk**, your drive is GPT, if not, it is a MBR disk. If your the **drive where your OS is installed** in is MBR. You may convert it to GPT by typing the following commands in the terminal.
 
-```bash
+```powershell
 # Checks whether your disk can be converted to GPT
-$ mbr2gpt /validate /disk:type-your-disk-number /allowFullOS
+mbr2gpt /validate /disk:<your-disk-number> /allowFullOS
 ```
 
 You can retrieve _your-disk-number_ from the earlier `list disk` command you used in `diskpart`. If you receive no errors from runnning that command, you can boot into Windows Preinstallation Environment (PE) and use the command prompt to run the following command. You can look at this [guide](https://docs.microsoft.com/en-us/windows/deployment/mbr-to-gpt) for more info.
 
-```
-$ mbr2gpt /convert /disk:type-your-disk-number
+```powershell
+mbr2gpt /convert /disk:<your-disk-number>
 ```
 
 > If you could use the `mbr2gpt` command, then good for you because I could not. This was because the MBR drive which my OS was located, had **no** partitions. If you are like me, I am sorry.
@@ -110,7 +113,7 @@ $ lsblk
 $ sgdisk -g /dev/type-your-drive-here
 ```
 
-You can find your drive name by using the `lsblk` command and  perform a educated guess to identify which is your drive. 
+You can find your drive name by using the `lsblk` command and  perform a educated guess to identify which is your drive.
 
 > e.g. `sgdisk -g /dev/nvme0n1`
 
@@ -120,7 +123,7 @@ You can skip this step if your drive is already GPT, but **do not** have a EFI p
 
  Open up your command prompt, whether in Windows or Windows PE (if you cannot boot back into your Windows) and run the following commands.
 
-```bash
+```powershell
 # Enter the Disk and Partition management tool
 $ diskpart
 
@@ -143,7 +146,7 @@ You can choose to shrink or delete an exiting partition to create the necessary 
 
 > I used 512 MB for my EFI partition, just in case.
 
-```bash
+```powershell
 # Selects your partition
 $ sel partition type-your-partition-number
 
@@ -155,9 +158,10 @@ $ delete partition override
 # Shrink the partition so that there will be 528MB of free space
 $ shrink desired=528  
 ```
+
 If you already have free space, you can simply go to this step and create a EFI and MSR partition.
 
-```bash
+```powershell
 # Select the disk where you want your EFI partition
 $ sel disk type-your-disk-number
 
@@ -195,7 +199,7 @@ $ exit
 Now we have to repair the EFI bootloader and the Windows BCD with the following commands.
 > The letter of my EFI volume and Windows was S: and C:, respectively. This will be used in our examples hereafter.
 
-```bash
+```powershell
 # Make a directory for the boot files
 $ mkdir S:\EFI\Microsoft\Boot
 
@@ -221,13 +225,14 @@ $ bcdedit /store BCD /set {default} path \Windows\System32\winload.efi
 $ bcdedit /store BCD /set {default} systemroot \Windows
 ```
 
-Now you can restart your computer. 
+Now you can restart your computer.
 
 >If you have multiple Windows Boot Managers after this, you can use [EasyUEFI](https://www.easyuefi.com/) to delete the extra entries, **before** your free trial ends.
 
 ## Getting Ready
 
 Boot into your Arch ISO and enable internet access.
+
 ### Connecting to Wi-Fi
 
 If you do not use Wi-Fi, you may skip this step. You will need internet access to install various packages to complete the setup. You can connect to your Wi-Fi network by running the following shell commands.
@@ -277,16 +282,17 @@ $ pacman -Syyy
 ```
 
 ### Mounting Partitions
+
 To mount your partitions, you need to identify which partition is which, and you can do that by typing the following command.
 
-```
-$ lsblk
+```bash
+lsblk
 ```
 
 Then you need to create a directory to mount your EFI and Windows partition.
 
-```
-$ mkdir -p /mnt/boot
+```bash
+mkdir -p /mnt/boot
 ```
 
 You will also have to create a partition for Arch by using cfdisk.
@@ -332,19 +338,20 @@ $ pacstrap /mnt base base-devel linux linux-firmware neovim git grub efibootmgr 
 
 Before entering root, you should generate a fstab file.
 
-```
-$ genfstab -U /mnt >> /mnt/etc/fstab
+```bash
+genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
 >If this is your second time doing this installation, make sure you remove the fstab file before appending it again.
->```
+>
+>```bash
 >rm /mnt/etc/fstab
 >```
 
 Now you can enter root.
 
-```
-$ arch-chroot /mnt
+```bash
+arch-chroot /mnt
 ```
 
 Within root, you should synchronise your clock with the following commands. First, you will have to find your city or region.
@@ -390,10 +397,11 @@ $ echo "LANG=en_SG.UTF-8" >> /etc/locale.conf
 You will also need to edit your host files. The name of your host is anything of your choice.
 
 ```bash
-$ echo "<your-hostname>" >> /etc/hostname
+echo "<your-hostname>" >> /etc/hostname
 ```
 
 You will now need to configure your hosts file with the following.
+
 ```bash
 $ nvim /etc/hosts
 
@@ -408,19 +416,19 @@ $ nvim /etc/hosts
 It is also essential to add a password for your root, which you can do through shell.
 
 ```bash
-$ passwd
+passwd
 ```
 
 You will also need to add a user.
 
-```
+```bash
 $ useradd -mG wheel <your-username>
 $ passwd <your-username>
 ```
 
 Now you need to give the user super user by editing the visudo file and uncommenting the first wheel group.
 
-```
+```bash
 $ EDITOR=nvim visudo
 
 ---------------------------------------------
@@ -497,24 +505,25 @@ $ ping google.com
 ## Addtional Installations
 
 Everything here on is optional, and you should choose to do so only at your own discretion.
+
 ### Install a Graphics Driver
 
 If you have a NVIDIA graphics card.
 
 ```bash
-$ sudo pacman -S nvidia nvidia-utils
+sudo pacman -S nvidia nvidia-utils
 ```
 
 If you have a AMD graphics card.
 
 ```bash
-$ sudo pacman -S xf86-video-amdgpu
+sudo pacman -S xf86-video-amdgpu
 ```
 
 If you have a Intel graphics card.
 
 ```bash
-$ sudo pacman -S xf86-video-intel
+sudo pacman -S xf86-video-intel
 ```
 
 ### Install a Display Server
@@ -522,7 +531,16 @@ $ sudo pacman -S xf86-video-intel
 You can choose your own display server.
 
 ```bash
-$ sudo pacman -Syu xorg
+sudo pacman -Syu xorg
+```
+
+### Install a AUR Helper
+
+```bash
+# Git clone yay to access the AUR
+$ git clone https://aur.archlinux.org/yay.git
+$ cd yay
+$ makepkg -si
 ```
 
 ### Install a Display Manager
@@ -530,24 +548,20 @@ $ sudo pacman -Syu xorg
 Here, we install ly, a minimalist display manager.
 
 ```bash
-# Git clone yay to access the AUR
-$ git clone https://aur.archlinux.org/yay.git
-$ cd yay
-$ makepkg -si
-
 # Install the ly display manager
-$ yay -Syu ly-git
+$ yay -Syu ly
 
 # Autostart ly on reboot
 $ sudo sytemctl enable ly.service
 ```
+
 ### Install a Window Manager
 
 Here, we install i3-gaps and other packages that will help with setting up i3.
 
 ```bash
 # Install i3-gaps and other relevant packages
-$ sudo pacman -Syu i3-gaps xterm alacritty dmenu ttf-fira-code
+$ sudo pacman -Syu i3-gaps xterm alacritty dmenu ttf-fira-code nerd-fonts-fira-code
 
 # Finally, reboot
 $ sudo reboot
