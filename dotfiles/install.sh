@@ -17,7 +17,7 @@ do
 
     # Create symbolic link
     echo "Attempting to create a symbolic link for $directory in $target_path/$directory"
-    ln -s .config/$directory ~/.config
+    ln -s .config/$directory $target_path
 done
 
 # Create symbolic link for .xinitrc
