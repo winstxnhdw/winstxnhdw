@@ -8,18 +8,16 @@ then
 fi
 
 config_dirs=`ls .config`
+origin_path=~/projects/winstxnhdw/dotfiles/.config
 target_path=~/.config
 
 for directory in $config_dirs
 do
-    # Remove the directory
-    rm -rf $target_path/$directory
-
     # Create symbolic link
     echo "Attempting to create a symbolic link for $directory in $target_path/$directory"
-    ln -s .config/$directory $target_path
+    ln -sf $origin_path/$directory $target_path
 done
 
 # Create symbolic link for .xinitrc
-echo "Attempting to create a symbolic link for .xinitrc in $HOME"
-ln -sf .xinitrc ~/.xinitrc
+echo "Attempting to create a symbolic link for X in $HOME"
+ln -sf $origin_path/../.xinitrc ~/.xinitrc
