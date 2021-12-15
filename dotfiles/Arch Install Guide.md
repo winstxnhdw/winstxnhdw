@@ -23,9 +23,8 @@ This documentation describes the installation steps of a **UEFI-supported Arch L
   - [Activate Services](#Activate-Services)
 - [Additional Installations](#Addtional-Installations)
   - [Install a Graphics Driver](#Install-a-Graphics-Driver)
-  - [Install a Display Server](#Install-a-Display-Server)
-  - [Install a Display Manager](#Install-a-Display-Manager)
   - [Install a Window Manager](#Install-a-Window-Manager)
+  - [Install a Display Manager](#Install-a-Display-Manager)
   - [Install fish](#Install-fish)
   - [Setup Bluetooth](#Setup-Bluetooth)
 
@@ -331,7 +330,7 @@ This step covers the installation of certain packages that may be useful for you
 
 ```bash
 # Replace intel-ucode with amd-ucode if you have a AMD processor
-$ pacstrap /mnt base base-devel linux linux-firmware neovim git grub efibootmgr os-prober ntfs-3g iwd dhcpcd bluez bluez-utils intel-ucode pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol polybar feh flameshot picom neofetch ranger
+$ pacstrap /mnt base base-devel linux linux-firmware neovim git grub efibootmgr os-prober ntfs-3g iwd dhcpcd intel-ucode
 ```
 
 ### Root
@@ -526,14 +525,6 @@ If you have a Intel graphics card.
 sudo pacman -S xf86-video-intel
 ```
 
-### Install a Display Server
-
-You can choose your own display server.
-
-```bash
-sudo pacman -Syu xorg
-```
-
 ### Install a AUR Helper
 
 ```bash
@@ -541,6 +532,18 @@ sudo pacman -Syu xorg
 $ git clone https://aur.archlinux.org/yay.git
 $ cd yay
 $ makepkg -si
+```
+
+### Install a Window Manager
+
+Here, we install i3-gaps and other packages that will help with setting up i3.
+
+```bash
+# Install i3-gaps and other relevant packages
+$ yay -Syu xorg i3-gaps alacritty dmenu
+
+# Finally, reboot
+$ sudo reboot
 ```
 
 ### Install a Display Manager
@@ -553,18 +556,6 @@ $ yay -Syu ly
 
 # Autostart ly on reboot
 $ sudo sytemctl enable ly.service
-```
-
-### Install a Window Manager
-
-Here, we install i3-gaps and other packages that will help with setting up i3.
-
-```bash
-# Install i3-gaps and other relevant packages
-$ sudo pacman -Syu i3-gaps xterm alacritty dmenu ttf-fira-code nerd-fonts-fira-code
-
-# Finally, reboot
-$ sudo reboot
 ```
 
 ### Install fish
@@ -640,4 +631,11 @@ Set bluetooth module to autostart by setting `AutoEnable` to `true`.
 $ sudo vim /etc/bluetooth/main.conf
 ---------------------------------------
 AutoEnable=true
+```
+
+### Other Installations
+
+```bash
+yay -Syu bluez bluez-utils pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol polybar feh flameshot picom pfetch ranger ttf-fira-code nerd-fonts-fira-code
+
 ```
