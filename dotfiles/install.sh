@@ -17,7 +17,3 @@ do
     echo "Attempting to create a symbolic link for $directory in $target_path/$directory"
     ln -sf $origin_path/$directory $target_path
 done
-
-# Create symbolic link for .xinitrc
-echo "Attempting to create a symbolic link for X in $HOME"
-ln -sf $origin_path/../.xinitrc ~/.xinitrc
