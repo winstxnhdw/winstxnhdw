@@ -186,7 +186,7 @@ mode "exit" {
         bindsym Return mode "default"
 }
 
-bindsym $mod+Shift+e mode "exit"; exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Logout [L]' 'i3-msg exit' -B 'Shutdown [S]' 'systemctl poweroff' -B 'Reboot [R]' 'systemctl reboot'"
+bindsym $mod+Shift+e mode "exit"; exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Logout [L]' 'pkill X' -B 'Shutdown [S]' 'systemctl poweroff' -B 'Reboot [R]' 'systemctl reboot'"
 
 # Shortcuts
 bindsym $mod+c exec firefox
