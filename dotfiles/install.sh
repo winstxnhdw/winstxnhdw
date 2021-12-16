@@ -17,3 +17,10 @@ do
     echo "Attempting to create a symbolic link for $directory in $target_path/$directory"
     ln -sf $origin_path/$directory $target_path
 done
+
+
+grub_path=/etc/default
+
+# Create symbolic link for GRUB
+echo "Attempting to create a symbolic link for GRUB in $grub_path/grub"
+sudo ln -sf $origin_path/../grub $grub_path

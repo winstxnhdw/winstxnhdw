@@ -173,7 +173,7 @@ mode "resize" {
 }
 
 mode "exit" {
-        bindsym l exec i3-msg exit
+        bindsym l exec pkill X
         bindsym r exec systemctl reboot
         bindsym s exec systemctl poweroff
         bindsym Escape mode "default"
