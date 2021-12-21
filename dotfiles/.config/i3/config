@@ -60,10 +60,10 @@ bindsym $win+d exec --no-startup-id dmenu_run -b
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $win+h focus left
+bindsym $win+j focus down
+bindsym $win+k focus up
+bindsym $win+l focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
