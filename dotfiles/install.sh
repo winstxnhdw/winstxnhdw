@@ -24,6 +24,8 @@ grub_path=/etc/default/grub
 echo "Attempting to create a symbolic link for GRUB in $grub_path"
 sudo ln -sf $origin_path/../grub/grub $grub_path
 
-# Create symbolic link for Cron
+cron_path=/var/spool
+
+# Create symbolic link for cron
 echo "Attempting to create a symbolic link for GRUB in $grub_path"
-sudo ln -sf $origin_path/../grub/grub $grub_path
+sudo ln -sf $origin_path/../cron/winston $grub_path
