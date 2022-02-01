@@ -22,4 +22,8 @@ grub_path=/etc/default/grub
 
 # Create symbolic link for GRUB
 echo "Attempting to create a symbolic link for GRUB in $grub_path"
-sudo ln -sf $origin_path/../grub $grub_path
+sudo ln -sf $origin_path/../grub/grub $grub_path
+
+# Create symbolic link for Cron
+echo "Attempting to create a symbolic link for GRUB in $grub_path"
+sudo ln -sf $origin_path/../grub/grub $grub_path
