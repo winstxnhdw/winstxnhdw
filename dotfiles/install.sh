@@ -11,6 +11,7 @@ config_dirs=`ls .config`
 origin_path=~/projects/winstxnhdw/dotfiles/.config
 target_path=~/.config
 
+
 for directory in $config_dirs
 do
     # Create symbolic link
@@ -24,9 +25,7 @@ grub_path=/etc/default/grub
 echo "Attempting to create a symbolic link for GRUB in $grub_path"
 sudo ln -sf $origin_path/../grub/grub $grub_path
 
-username=winston
-cron_path=/var/spool/cron/$username
+cron_path=$target_path/cron
 
-# Create symbolic link for cron
-echo "Attempting to create a symbolic link for cron in $cron_path"
-sudo ln -sf $origin_path/../cron/$username $cron_path
+echo "Attempting to set $cron_path/cron as crontab"
+crontab $target_path/cron/cron
