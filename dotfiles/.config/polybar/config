@@ -16,6 +16,9 @@
 ;
 ;==========================================================
 
+[custom]
+terminal = alacritty
+
 [colors]
 background = #00
 background-alt = #444
@@ -71,7 +74,7 @@ cursor-scroll = ns-resize
 [module/name]
 type = custom/text
 content = winston@winston
-click-left = alacritty
+click-left = ${custom.terminal}
 
 [module/i3]                      
 type = internal/i3  
@@ -112,10 +115,9 @@ label-urgent-padding = 2
 
 [module/cpu]
 type = internal/cpu
-
 interval = 0.5
 format = <label>
-label = %{A1:alacritty -e bpytop:}  %percentage%% %{A}
+label = %{A1: alacritty -e bpytop:}  %percentage%% %{A}
 
 [module/wlan]
 type = internal/network
