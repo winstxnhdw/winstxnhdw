@@ -1,4 +1,4 @@
-function rm --wraps='rm' --description 'alias rm=rm'
+function rm --description 'alias rm=rm'
   set -l remove (command rm $argv 2>&1)
 
   if test -z $remove
