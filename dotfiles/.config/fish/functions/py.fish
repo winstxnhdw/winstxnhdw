@@ -1,3 +1,3 @@
 function py --wraps=python --description 'alias py=python'
-  python $argv; 
+  python $argv
 end
