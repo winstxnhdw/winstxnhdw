@@ -1,10 +1,18 @@
 function rm --description 'alias rm=rm'
   set -l remove (command rm $argv 2>&1)
 
-  if test -z $remove
+  if test -z "$remove"
     return
+    
   else
-    echo $remove
+    for line in $remove
+      echo $line
+    end
+
+    switch $argv
+      case '--*'
+        return
+    end
   end
   
   switch $remove
