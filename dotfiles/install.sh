@@ -16,6 +16,7 @@ for directory in $config_dirs
 do
     # Create symbolic link
     echo "Attempting to create a symbolic link for $directory in $target_path/$directory"
+    rm -r $target_path/$directory
     ln -sf $origin_path/$directory $target_path
 done
 
