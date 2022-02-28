@@ -14,4 +14,3 @@ eval /home/winston/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 
 conda activate default
 starship init fish | source
-
