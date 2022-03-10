@@ -35,7 +35,7 @@ grub_path=/etc/default/grub
 echo "Attempting to create a symbolic link for GRUB in $grub_path"
 sudo ln -sf $origin_path/../grub/grub $grub_path
 
-cron_path=$target_path/cron
+cron_path=$origin_path/../cron/cron
 
-echo "Attempting to set $cron_path/cron as crontab"
-crontab $target_path/cron/cron
+echo "Attempting to set $cron_path as crontab"
+crontab $cron_path
