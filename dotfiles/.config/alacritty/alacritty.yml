@@ -109,7 +109,7 @@ font:
 
   # Bold font face
   bold:
-    family: MonoLisa
+    family: MonoLisa Nerd Font
     style: Bold
 
   # Italic font face
