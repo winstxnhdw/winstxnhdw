@@ -3,7 +3,7 @@ function rm --description 'alias rm=rm'
     set -l remove (command rm $arg 2>&1)
 
     if test -z "$remove"
-      return
+      continue
       
     else
       for line in $remove
@@ -12,7 +12,7 @@ function rm --description 'alias rm=rm'
 
       switch $arg
         case '--*'
-          return
+          continue
       end
     end
     
