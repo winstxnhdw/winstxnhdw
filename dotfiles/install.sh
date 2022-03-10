@@ -7,10 +7,9 @@ then
     exit 1
 fi
 
-config_dirs=`ls .config`
+config_dirs=`ls -p .config | grep / | sed 's@/@@g'`
 origin_path=~/projects/winstxnhdw/dotfiles/.config
 target_path=~/.config
-
 
 for directory in $config_dirs
 do
@@ -18,6 +17,16 @@ do
     echo "Attempting to create a symbolic link for $directory in $target_path/$directory"
     rm -r $target_path/$directory
     ln -sf $origin_path/$directory $target_path
+done
+
+config_files=`ls -p .config | grep -v /`
+
+for file in $config_files
+do
+    # Create symbolic link
+    echo "Attempting to create a symbolic link for $file in $target_path/$file"
+    rm $target_path/$file
+    ln -sf $origin_path/$file $target_path
 done
 
 grub_path=/etc/default/grub
