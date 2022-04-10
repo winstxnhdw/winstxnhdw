@@ -15,16 +15,20 @@ syntax enable
 call plug#begin()
 
 " Declare the list of plugins.
-Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lambdalisue/suda.vim'
 Plug 'preservim/nerdtree'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'norcalli/nvim-colorizer.lua'
 " List ends here. Plugins become visible to Vim after this call.
 
 call plug#end()
+
+let g:gruvbox_contrast_dark='hard'
+let g:airline_theme='gruvbox'
+colorscheme gruvbox
 
 if (has("termguicolors"))
   set termguicolors
