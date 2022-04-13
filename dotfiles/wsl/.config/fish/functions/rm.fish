@@ -2,7 +2,7 @@ function rm --description 'alias rm=rm'
   for arg in $argv
     set -l remove (command rm $arg 2>&1)
 
-    if test -z "$remove"
+    if test -z '$remove'
       continue
       
     else
@@ -19,12 +19,14 @@ function rm --description 'alias rm=rm'
     switch $remove
       case '*Is a directory'
         echo 'Would you like to use rm -r instead? [y/N] '
+
         switch (read -t)
           case Y y
-            echo "Attempting to remove directory."
+            echo 'Attempting to remove directory.'
             command rm -r $arg
-          case '' N n
-            echo "No directories will be removed."
+
+          case '*'
+            echo 'No directories will be removed.'
         end
     end
   end
