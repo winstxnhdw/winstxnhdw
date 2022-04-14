@@ -5,7 +5,7 @@ function restore-er --description 'Copies the current Elden Ring userdata to a d
     cd $path
 
     if test -f backup.zip
-        mv (ls $path | grep -Po "\\d+") temp
+        mv --backup=t (ls $path | grep -Po "\\d+") temp
         unzip backup
     else
         echo "No backup found. Aborting."
