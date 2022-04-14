@@ -6,5 +6,6 @@ function clone --description 'Switch to the git directory after cloning'
 
     case '*'
         git clone git@github.com:winstxnhdw/$argv.git
+        cd $argv
     end
 end

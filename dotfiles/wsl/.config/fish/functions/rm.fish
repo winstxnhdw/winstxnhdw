@@ -1,4 +1,14 @@
 function rm --description 'alias rm=rm'
+  switch $argv[1]
+    case '*f'
+      command rm -rf $argv
+      return
+
+    case '-r'
+      command rm -r $argv
+      return
+  end
+
   for arg in $argv
     set -l remove (command rm $arg 2>&1)
 
