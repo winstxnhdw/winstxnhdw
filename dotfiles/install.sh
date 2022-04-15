@@ -1,3 +1,5 @@
+#!/bin/bash
+
 read -p "You are about to overwrite your configuration files. Are you sure? [y/N] " -n 1 -r
 echo
 
