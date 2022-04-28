@@ -1,4 +1,4 @@
-# dotfiles
+# arch-dotfiles
 
 Here lies my configuration files for Arch Linux.
 
