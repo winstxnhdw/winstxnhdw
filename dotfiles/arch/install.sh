@@ -9,7 +9,7 @@ then
     exit 1
 fi
 
-origin_path=~/projects/winstxnhdw/dotfiles/.config
+origin_path=~/projects/winstxnhdw/dotfiles/arch/.config
 target_path=~/.config
 
 for directory in `ls -p .config | grep / | sed 's@/@@g'`
