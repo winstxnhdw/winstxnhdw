@@ -1,3 +1,3 @@
-function sudo --wraps='su -c' --description 'alias sudo=su -c'
-  su -l root -c "$argv"; 
+function sudo --wraps='doas' --description 'alias sudo=doas'
+  doas $argv; 
 end
