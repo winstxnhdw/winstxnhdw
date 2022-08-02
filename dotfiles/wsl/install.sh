@@ -27,9 +27,3 @@ do
     rm $target_path/$file
     ln -sf $origin_path/$file $target_path
 done
-
-# Create symbolic link for doas
-doas_path=/etc/doas.conf
-echo "Attempting to create a symbolic link for doas in $doas_path"
-sudo ln -sf $origin_path/../doas/doas.conf $doas_path
-sudo chown -c root:root /etc/doas.conf
