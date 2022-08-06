@@ -15,6 +15,6 @@ function logpow --description 'Convert from exponential form to logarithmic form
         end
       end
 
-      echo log_\{$base\}\($exponent\) = $result
+      echo log_\{$base\} $result = $exponent
   end
 end
