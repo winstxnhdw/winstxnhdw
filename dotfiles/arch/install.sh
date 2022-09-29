@@ -28,11 +28,6 @@ do
     ln -sf $origin_path/$file $target_path
 done
 
-# Create symbolic link for GRUB
-grub_path=/etc/default/grub
-echo "Attempting to create a symbolic link for GRUB in $grub_path"
-sudo ln -sf $origin_path/../grub/grub $grub_path
-
 # Create symbolic link for cron
 cron_path=$origin_path/../cron/cron
 echo "Attempting to set $cron_path as crontab"
