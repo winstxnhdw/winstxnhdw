@@ -168,6 +168,10 @@ mode "exit" {
 
 bindsym $mod+Shift+e mode "exit"; exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Logout [L]' 'pkill X' -B 'Shutdown [S]' 'systemctl poweroff' -B 'Reboot [R]' 'systemctl reboot'"
 
+# Monitor Brightness
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
 # Shortcuts
 bindsym $mod+c exec firefox-developer-edition
 bindsym $mod+r mode "resize"
@@ -176,7 +180,7 @@ bindsym --release Print exec flameshot gui
 # Executables
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --no-fehbg --bg-scale $HOME/wallpapers/wallpaper.jpg
-exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom.conf
+exec_always --no-startup-id picom --config ~/.config/picom.conf
 exec_always --no-startup-id dunst -conf $HOME/.config/dunstrc
 exec --no-startup-id flameshot
 exec --no-startup-id udiskie
