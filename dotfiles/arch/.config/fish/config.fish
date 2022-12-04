@@ -1,7 +1,7 @@
 set fish_greeting
 pfetch
 
-set fish_user_paths $fish_user_paths $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin /opt/cuda/bin
+set fish_user_paths $fish_user_paths $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin /opt/cuda/bin $HOME/.cargo/bin
 
 set -x EDITOR nvim
 set -x VISUAL nvim
