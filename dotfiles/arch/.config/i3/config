@@ -178,11 +178,11 @@ mode "exit" {
         bindsym Return mode "default"
 }
 
-bindsym $mod+Shift+e mode "exit"; exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Logout [L]' 'pkill X' -B 'Shutdown [S]' 'systemctl poweroff' -B 'Reboot [R]' 'systemctl reboot'"
+bindsym $mod+Shift+e mode "exit"; exec $HOME/.config/i3/scripts/power.sh 
 
 # Monitor Brightness
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 1
+bindsym XF86MonBrightnessDown exec light -U 1
 
 # Shortcuts
 bindsym $mod+c exec firefox-developer-edition
