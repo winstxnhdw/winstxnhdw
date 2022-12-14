@@ -178,6 +178,8 @@ mode "exit" {
         bindsym Return mode "default"
 }
 
+bindsym $mod+Shift+e mode "exit"
+
 # Monitor Brightness
 bindsym XF86MonBrightnessUp exec light -A 1
 bindsym XF86MonBrightnessDown exec light -U 1
