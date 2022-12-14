@@ -178,8 +178,6 @@ mode "exit" {
         bindsym Return mode "default"
 }
 
-bindsym $mod+Shift+e mode "exit"; exec $HOME/.config/i3/scripts/power.sh 
-
 # Monitor Brightness
 bindsym XF86MonBrightnessUp exec light -A 1
 bindsym XF86MonBrightnessDown exec light -U 1
