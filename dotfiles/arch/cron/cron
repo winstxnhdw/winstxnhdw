@@ -8,4 +8,4 @@
 # │ │ │ │ │
 # * * * * *  command_to_execute
 
-* 20 * * * cd ~/projects/winstxnhdw; git add .; git commit -m "auto-commit"; git push
+0 20 * * * cd ~/projects/winstxnhdw; git add .; git commit -m "auto-commit"; git push
