@@ -1,5 +1,6 @@
 while true
-do
+do  
+    clear
     sensors
     sleep 2
 done
