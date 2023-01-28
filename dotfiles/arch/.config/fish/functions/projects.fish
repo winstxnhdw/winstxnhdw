@@ -2,6 +2,6 @@ function projects --wraps='cd ~/projects/' --description 'alias projects=cd ~/pr
   if test -z $argv[1]
     cd ~/projects
   else
-    cd ~/projects/$argv; 
+    cd ~/projects/$argv || mkdir ~/projects/$argv && cd ~/projects/$argv
   end
 end
