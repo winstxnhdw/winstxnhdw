@@ -197,6 +197,7 @@ exec_always --no-startup-id dunst -conf $HOME/.config/dunstrc
 exec --no-startup-id flameshot
 exec --no-startup-id udiskie
 exec --no-startup-id nvidia-settings --config ~/.config/nvidia-settings/.nvidia-settings-rc --load-config-only
+exec --no-startup-id ~/.initrc
 
 # i3-gaps
 for_window [class=".*"] border pixel 0

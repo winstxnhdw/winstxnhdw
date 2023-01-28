@@ -1,2 +1,6 @@
-sensors
-tail -f /dev/null
+while true
+do
+    sensors
+    sleep 2
+done
+
