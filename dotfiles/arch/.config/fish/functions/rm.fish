@@ -1,10 +1,10 @@
 function rm --description 'alias rm=rm'
   switch $argv[1]
-    case '*f'
+    case '-*f'
       command rm -rf $argv
       return
 
-    case '-r'
+    case '-*r'
       command rm -r $argv
       return
   end
