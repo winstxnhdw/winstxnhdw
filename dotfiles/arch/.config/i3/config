@@ -187,9 +187,10 @@ bindsym XF86MonBrightnessDown exec light -U 1
 bindsym $mod+c exec firefox-developer-edition
 bindsym $mod+r mode "resize"
 bindsym --release Print exec flameshot gui
+bindsym Control+Shift+Escape exec alacritty -e btop
 
 # Executables
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id feh --no-fehbg --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec_always --no-startup-id picom --config ~/.config/picom.conf
 exec_always --no-startup-id dunst -conf $HOME/.config/dunstrc
