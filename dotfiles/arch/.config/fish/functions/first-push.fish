@@ -3,5 +3,5 @@ function first-push --description 'First push from a local repository to a git r
   git add .
   git commit -m "chore: initialise repository"
   git remote add origin $argv
-  git push -u origin master
+  git push -u origin main
 end
