@@ -9,7 +9,7 @@ then
     exit 1
 fi
 
-origin_path=~/projects/winstxnhdw/dotfiles/arch/
+origin_path=~/projects/winstxnhdw/dotfiles/arch
 config_path=$origin_path/.config
 target_path=~/.config
 
@@ -31,7 +31,7 @@ done
 
 # Create symbolic link for fonts
 echo "Attempting to create a symbolic link for fonts"
-ln -sf $origin_path/fonts ~/.local/share/fonts
+ln -sf $origin_path/fonts ~/.local/share
 
 # Setting crontab
 cron_path=$origin_path/cron/cron
