@@ -1,3 +1,3 @@
-function hotplugs --wraps='cd /run/media/winston' --description 'alias hotplugs=cd /run/media/winston'
-  cd /run/media/winston 
+function hotplugs --wraps='pushd /run/media/winston' --description 'alias hotplugs=pushd /run/media/winston'
+  pushd /run/media/winston
 end

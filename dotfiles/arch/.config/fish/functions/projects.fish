@@ -1,6 +1,6 @@
-function projects --wraps='cd ~/projects/' --description 'alias projects=cd ~/projects/'
+function projects --wraps='pushd ~/projects/' --description 'alias projects=pushd ~/projects/'
   if test -z $argv
-    cd ~/projects
+    pushd ~/projects
     return
   end
 
@@ -19,5 +19,5 @@ function projects --wraps='cd ~/projects/' --description 'alias projects=cd ~/pr
     end
   end
 
-  cd $project
+  pushd $project
 end

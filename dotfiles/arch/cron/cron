@@ -3,9 +3,9 @@
 # │ │ ┌───────────── day of month (1 - 31)
 # │ │ │ ┌───────────── month (1 - 12)
 # │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday; 7 is also Sunday on some systems)
-# │ │ │ │ │                                    
+# │ │ │ │ │
 # │ │ │ │ │
 # │ │ │ │ │
 # * * * * *  command_to_execute
 
-0 20 * * * cd ~/projects/winstxnhdw; git add .; git commit -m "auto-commit"; git push
+0 20 * * * pushd ~/projects/winstxnhdw; git add .; git commit -m "auto-commit"; git push

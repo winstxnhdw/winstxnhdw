@@ -1,8 +1,8 @@
 function er-backup --description 'Zips Elden Ring userdata'
-    cd /mnt/c/Users
+    pushd /mnt/c/Users
     set -l username (string trim (cmd.exe /c echo %USERNAME%))
     set -l path /mnt/c/Users/$username/AppData/Roaming/EldenRing
-    cd $path
-    
+    pushd $path
+
     zip -r backup (ls $path | grep -Po "\\d+")
 end
