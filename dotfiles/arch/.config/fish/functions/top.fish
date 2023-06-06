@@ -1,3 +1,3 @@
-function top --wraps=bpytop --description 'alias top=bpytop'
+function top --wraps=btop --description 'alias top=btop'
   btop
 end

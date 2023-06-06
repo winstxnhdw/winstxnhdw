@@ -1,7 +1,1 @@
-while true
-do  
-    clear
-    sensors
-    sleep 2
-done
-
+watch -n 0.5 sensors
