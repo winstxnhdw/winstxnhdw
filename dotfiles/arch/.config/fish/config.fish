@@ -10,9 +10,8 @@ set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 set -x PF_INFO "ascii title os wm editor shell uptime pkgs memory palette"
 
-if test -f /home/winston/mambaforge/bin/conda
-    eval /home/winston/mambaforge/bin/conda "shell.fish" "hook" $argv | source
-end
+eval $HOME/mambaforge/bin/conda "shell.fish" "hook" $argv | source
+source $HOME/mambaforge/etc/fish/conf.d/mamba.fish
 
 pfetch
 conda activate default
