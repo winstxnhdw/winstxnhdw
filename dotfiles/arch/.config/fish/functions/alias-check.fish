@@ -1,4 +1,4 @@
-function alias --description "Print/edit fish alias"
+function alias-check --description "Print/edit fish alias"
   set -l alias_file $HOME/.config/fish/functions/$argv[1].fish
 
   switch $argv[2]
