@@ -1,3 +1,3 @@
-function gtop --description 'top-like interface for nvidia-smi'
+function gtop --wraps='watch -n 0.5 nvidia-smi' --description 'alias gtop=watch -n 0.5 nvidia-smi'
   watch -n 0.5 nvidia-smi
 end
