@@ -1,3 +1,3 @@
-function edit-cron --wraps='xdg-open (readlink -e /var/spool/cron/winston)' --description 'alias edit-cron=xdg-open (readlink -e /var/spool/cron/winston)'
-  xdg-open (readlink -e /var/spool/cron/winston)
+function edit-cron --wraps='xdg-open (readlink -e /var/spool/cron/$USER)' --description 'alias edit-cron=xdg-open (readlink -e /var/spool/cron/$USER)'
+  xdg-open (readlink -e /var/spool/cron/$USER)
 end
