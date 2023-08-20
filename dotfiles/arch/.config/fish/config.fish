@@ -1,6 +1,6 @@
 set fish_greeting
 
-set fish_user_paths $fish_user_paths $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin /opt/cuda/bin $HOME/.cargo/bin $HOME/.dotnet/tools /usr/share/dotnet $HOME/.local/bin
+set fish_user_paths /sbin $fish_user_paths $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin /opt/cuda/bin $HOME/.cargo/bin $HOME/.dotnet/tools /usr/share/dotnet $HOME/.local/bin
 
 set -x EDITOR nvim
 set -x VISUAL nvim
