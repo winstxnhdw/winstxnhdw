@@ -15,6 +15,5 @@ eval $HOME/mambaforge/bin/conda "shell.fish" "hook" $argv | source
 source $HOME/mambaforge/etc/fish/conf.d/mamba.fish
 
 pfetch
-conda activate default
 starship init fish | source
 
