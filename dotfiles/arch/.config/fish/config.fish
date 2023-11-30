@@ -5,7 +5,7 @@ set fish_user_paths /sbin $fish_user_paths $HOME/.yarn/bin $HOME/.config/yarn/gl
 set -x EDITOR nvim
 set -x VISUAL nvim
 set -x SUDO_EDITOR nvim
-
+set -x HOTPLUGS /run/media/$USER
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -x MANROFFOPT "-c"
 
