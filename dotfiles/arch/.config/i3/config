@@ -186,6 +186,7 @@ bindsym XF86MonBrightnessDown exec light -U 1
 # Shortcuts
 bindsym $mod+c exec firefox-developer-edition
 bindsym $mod+r mode "resize"
+bindsym $mod+x exec xrandr --auto
 bindsym --release Print exec flameshot gui
 bindsym Control+Shift+Escape exec alacritty -e btop
 

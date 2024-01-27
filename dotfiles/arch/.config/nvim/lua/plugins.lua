@@ -20,5 +20,6 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'navarasu/onedark.nvim'
     use 'ThePrimeagen/vim-be-good'
+    use 'github/copilot.vim'
 end)
 
