@@ -1,0 +1,16 @@
+[Core General]
+ExternalEditor=Custom
+ExternalEditorCommand=nvim-texlabconfig -file %f -line %l -cache_root /home/winston/.cache/nvim
+
+[Core Performance]
+MemoryLevel=Greedy
+
+[Dlg Accessibility]
+RecolorBackground=24,24,24
+RecolorForeground=255,255,255
+
+[Document]
+RenderMode=Recolor
+
+[Reviews]
+QuickAnnotationTools=<tool id="1" type="highlight" default="true" name="Yellow Highlighter"><engine color="#ffff00" type="TextSelector"><annotation color="#ffffff00" type="Highlight"/></engine><shortcut>1</shortcut></tool>,<tool id="2" type="highlight" default="true" name="Green Highlighter"><engine color="#00ff00" type="TextSelector"><annotation color="#ff00ff00" type="Highlight"/></engine><shortcut>2</shortcut></tool>,<tool id="3" type="underline"><engine color="#ff0000" type="TextSelector"><annotation color="#ffff0000" type="Underline"/></engine><shortcut>3</shortcut></tool>,<tool id="4" type="typewriter" default="true" name="Insert Text"><engine block="true" type="PickPoint"><annotation width="0" color="#00ffffff" type="Typewriter" textColor="#000000"/></engine><shortcut>4</shortcut></tool>,<tool id="5" type="note-inline"><engine color="#ffff00" hoverIcon="tool-note-inline" block="true" type="PickPoint"><annotation color="#ffffff00" type="FreeText" textColor="#ff000000"/></engine><shortcut>5</shortcut></tool>,<tool id="6" type="note-linked"><engine color="#ffff00" hoverIcon="tool-note" type="PickPoint"><annotation icon="Note" color="#ffffff00" type="Text"/></engine><shortcut>6</shortcut></tool>
