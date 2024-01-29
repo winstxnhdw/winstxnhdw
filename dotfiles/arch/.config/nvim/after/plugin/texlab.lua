@@ -3,6 +3,7 @@ require('texlabconfig').setup()
 require('lspconfig').texlab.setup({
     settings = {
         texlab = {
+            bibtexFormatter = 'latexindent',
             build = {
                 executable = 'tectonic',
                 args = { '-X', 'compile', '%f', '--synctex', '--keep-logs', '--keep-intermediates' },

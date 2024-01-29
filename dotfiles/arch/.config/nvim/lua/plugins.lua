@@ -18,6 +18,6 @@ return {
     'navarasu/onedark.nvim',
     'ThePrimeagen/vim-be-good',
     'github/copilot.vim',
-    'elentok/format-on-save.nvim',
     'f3fora/nvim-texlabconfig',
+    'stevearc/conform.nvim',
 }
