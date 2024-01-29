@@ -1,4 +1,4 @@
-local ts_update = require("nvim-treesitter.install").update({
+local ts_update = require('nvim-treesitter.install').update({
     with_sync = true
 })
 

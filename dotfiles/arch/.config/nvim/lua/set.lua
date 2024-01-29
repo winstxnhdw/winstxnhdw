@@ -1,4 +1,4 @@
-vim.opt.guicursor = ""
+vim.opt.guicursor = ''
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -12,8 +12,8 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.shell = "fish"
+vim.opt.shell = 'fish'
 
-vim.opt.mouse = "v"
+vim.opt.mouse = 'v'
 
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
