@@ -10,6 +10,6 @@ require('format-on-save').setup({
         yaml = formatters.lsp,
         html = formatters.lsp,
         css = formatters.lsp,
-        latex = formatters.lsp,
+        tex = formatters.lsp,
     }
 })

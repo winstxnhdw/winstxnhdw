@@ -6,7 +6,8 @@ require('lspconfig').texlab.setup({
             build = {
                 executable = 'tectonic',
                 args = { '-X', 'compile', '%f', '--synctex', '--keep-logs', '--keep-intermediates' },
-                onSave = true
+                onSave = true,
+                forwardSearchAfter = true,
             },
             chktex = {
                 onEdit = true,
@@ -14,7 +15,7 @@ require('lspconfig').texlab.setup({
             },
             forwardSearch = {
                 executable = 'okular',
-                args = { '--unique', '%p#src:%l%f' }
+                args = { '--noraise', '--unique', '%p#src:%l%f' }
             }
         }
     }
