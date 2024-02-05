@@ -1,4 +1,4 @@
-vim.opt.guicursor = ''
+vim.opt.guicursor = ""
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -12,8 +12,20 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.shell = 'fish'
+vim.opt.shell = "fish"
 
-vim.opt.mouse = 'v'
+vim.opt.mouse = "v"
 
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = { "*.md", "*.tex" },
+	group = vim.api.nvim_create_augroup("Wrap Settings", { clear = true }),
+	command = "setlocal wrap",
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = { "*.md", "*.tex" },
+	group = vim.api.nvim_create_augroup("Linebreak Settings", { clear = true }),
+	command = "setlocal linebreak",
+})
