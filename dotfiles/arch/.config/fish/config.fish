@@ -16,3 +16,4 @@ source $HOME/mambaforge/etc/fish/conf.d/mamba.fish
 
 pfetch
 starship init fish | source
+zoxide init fish | source
