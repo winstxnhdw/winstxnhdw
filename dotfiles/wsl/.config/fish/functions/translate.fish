@@ -1,3 +1,5 @@
 function translate --description 'Translates a string from one language to another'
-  curl 'https://winstxnhdw-nllb-api.hf.space/api/v3/translate?text=($argv[3..-1] | string join %20)&source=$argv[1]&target=$argv[2]'
+  set -l text ($argv[3..-1] | string join %20)
+  set -l source_language (curl 'https://winstxnhdw-nllb-api.hf.space/api/v3/detect_language?text=$text' | jq -r .language)
+  curl 'https://winstxnhdw-nllb-api.hf.space/api/v3/translate?text=$text&source=$source_language&target=$argv[2]' | jq -r .result
 end
