@@ -1,3 +1,3 @@
 function ls --wraps=exa --description 'alias ls=exa'
-  exa $argv
+  eza $argv
 end
