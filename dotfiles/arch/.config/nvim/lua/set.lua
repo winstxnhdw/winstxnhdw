@@ -1,4 +1,7 @@
 vim.opt.guicursor = ""
+vim.opt.wrap = false
+vim.opt.shell = "fish"
+vim.opt.mouse = "v"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -9,12 +12,6 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-
-vim.opt.wrap = false
-
-vim.opt.shell = "fish"
-
-vim.opt.mouse = "v"
 
 vim.g.mapleader = " "
 
