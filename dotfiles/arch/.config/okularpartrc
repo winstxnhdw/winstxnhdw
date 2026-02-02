@@ -5,6 +5,9 @@ ExternalEditorCommand=nvim-texlabconfig -file %f -line %l
 [Core Performance]
 MemoryLevel=Aggressive
 
+[Main View]
+ShowLeftPanel=false
+
 [PageView]
 MouseMode=TextSelect
 

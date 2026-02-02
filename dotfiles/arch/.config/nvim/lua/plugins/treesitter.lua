@@ -1,5 +1,5 @@
 return {
-    { 
+    {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
@@ -20,8 +20,6 @@ return {
                 "bicep",
                 "bitbake",
                 "blade",
-                "blueprint",
-                "bp1",
                 "c",
                 "c_sharp",
                 "cairo",
@@ -71,7 +69,6 @@ return {
                 "fortran",
                 "fsh",
                 "func",
-                "fusion",
                 "gdscript",
                 "gdshader",
                 "git_config",
@@ -119,7 +116,6 @@ return {
                 "jsdoc",
                 "json",
                 "json5",
-                "jsonc",
                 "jsonnet",
                 "julia",
                 "just",
@@ -155,7 +151,6 @@ return {
                 "nim_format_string",
                 "ninja",
                 "nix",
-                "norg",
                 "nqc",
                 "objc",
                 "objdump",
@@ -163,7 +158,6 @@ return {
                 "ocaml_interface",
                 "ocamllex",
                 "odin",
-                "org",
                 "pascal",
                 "passwd",
                 "pem",
@@ -262,7 +256,6 @@ return {
                 "v",
                 "vala",
                 "vento",
-                "verilog",
                 "vhdl",
                 "vhs",
                 "vim",
@@ -310,16 +303,21 @@ return {
                     set_jumps = true,
                 },
             })
-            do
-                vim.keymap.set({"n", "x", "o"}, "]]", function()
-                    require("nvim-treesitter.textobjects.move").goto_next_start("@function.outer", "textobjects")
-                    vim.cmd("normal! zz")
-                end)
-                vim.keymap.set({"n", "x", "o"}, "[[", function()
-                    require("nvim-treesitter.textobjects.move").goto_previous_start("@function.outer", "textobjects")
-                    vim.cmd("normal! zz")
-                end)
+
+            local move = require("nvim-treesitter-textobjects.move")
+
+            local goto_next_start = function()
+                move.goto_next_start("@function.outer", "textobjects")
+                vim.cmd("normal! zz")
             end
+
+            local goto_previous_start = function()
+                move.goto_previous_start("@function.outer", "textobjects")
+                vim.cmd("normal! zz")
+            end
+
+            vim.keymap.set({"n", "x", "o"}, "]]", goto_next_start)
+            vim.keymap.set({"n", "x", "o"}, "[[", goto_previous_start)
         end
    }
 }

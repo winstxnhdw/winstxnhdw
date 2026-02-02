@@ -11,9 +11,6 @@ set -x MANROFFOPT "-c"
 
 set -x PF_INFO "ascii title os wm editor shell uptime pkgs memory palette"
 
-eval $HOME/mambaforge/bin/conda "shell.fish" "hook" $argv | source
-source $HOME/mambaforge/etc/fish/conf.d/mamba.fish
-
 pfetch
 starship init fish | source
 zoxide init fish | source

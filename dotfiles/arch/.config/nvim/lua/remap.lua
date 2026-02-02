@@ -1,5 +1,4 @@
 local nnoremap = require("keymap").nnoremap
-local telescope = require("telescope.builtin")
 
 nnoremap("<C-a>", "gg<S-v>G")
 nnoremap("<leader>pv", "<cmd>Ex<CR>")

@@ -1,7 +1,12 @@
-require("lspconfig").ltex.setup({
-	settings = {
-		ltex = {
-			language = "en-GB",
-		},
-	},
-})
+return {
+	"neovim/nvim-lspconfig",
+	config = function()
+		vim.lsp.config("ltex", {
+			settings = {
+				ltex = {
+					language = "en-GB",
+				},
+			},
+		})
+	end,
+}
